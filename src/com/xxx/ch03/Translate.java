@@ -2,8 +2,8 @@ package com.xxx.ch03;
 
 import com.xxx.ch03.ArrayInitParser.InitContext;
 import java.io.IOException;
+import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
-import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
@@ -14,7 +14,7 @@ public class Translate {
 
     public static void main(String[] args) throws IOException {
         // 输入
-        CharStream input = CharStreams.fromString(args[0]);
+        CharStream input = new ANTLRInputStream(args[0]);
         // lexer
         ArrayInitLexer lexer = new ArrayInitLexer(input);
         // 使用lexer将输入转换为tokens
